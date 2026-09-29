@@ -1,0 +1,104 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "Cosmetics product SKU with pricing, stock level and location",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "barcode": { "type": "string" },
+        "name": { "type": "string" },
+        "brand": { "type": "string" },
+        "category": { "type": "string" },
+        "purchasePrice": { "type": "number" },
+        "sellingPrice": { "type": "number" },
+        "currentStock": { "type": "number" },
+        "minStockAlert": { "type": "number" },
+        "unit": { "type": "string" },
+        "rackLocation": { "type": "string" },
+        "lastUpdated": { "type": "string" }
+      },
+      "required": ["id", "barcode", "name", "brand", "purchasePrice", "sellingPrice", "currentStock"]
+    },
+    "SupplierParty": {
+      "title": "SupplierParty",
+      "description": "Supplier or distributor profile with debit and credit balance",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "contactPerson": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "address": { "type": "string" },
+        "gstNumber": { "type": "string" },
+        "balance": { "type": "number" },
+        "openingBalance": { "type": "number" },
+        "paymentTermsDays": { "type": "number" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "name", "phone", "balance"]
+    },
+    "SupplierTransaction": {
+      "title": "SupplierTransaction",
+      "description": "Purchase or payment ledger record for a supplier",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "supplierId": { "type": "string" },
+        "supplierName": { "type": "string" },
+        "type": { "type": "string" },
+        "direction": { "type": "string" },
+        "amount": { "type": "number" },
+        "referenceNo": { "type": "string" },
+        "invoiceDate": { "type": "string" },
+        "date": { "type": "string" },
+        "notes": { "type": "string" },
+        "paymentMode": { "type": "string" }
+      },
+      "required": ["id", "supplierId", "amount", "direction", "date"]
+    },
+    "SaleInvoice": {
+      "title": "SaleInvoice",
+      "description": "Customer retail sale invoice generated at POS billing counter",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "invoiceNumber": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "items": { "type": "array" },
+        "subtotal": { "type": "number" },
+        "discount": { "type": "number" },
+        "grandTotal": { "type": "number" },
+        "paymentMode": { "type": "string" },
+        "paymentStatus": { "type": "string" },
+        "paidAmount": { "type": "number" },
+        "dueAmount": { "type": "number" },
+        "date": { "type": "string" },
+        "notes": { "type": "string" },
+        "totalCost": { "type": "number" },
+        "netProfit": { "type": "number" }
+      },
+      "required": ["id", "invoiceNumber", "grandTotal", "date"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": { "$ref": "#/entities/Product" },
+      "description": "All cosmetics inventory products shared across all family devices"
+    },
+    "/suppliers/{supplierId}": {
+      "schema": { "$ref": "#/entities/SupplierParty" },
+      "description": "Suppliers and distributor ledger profiles"
+    },
+    "/transactions/{transactionId}": {
+      "schema": { "$ref": "#/entities/SupplierTransaction" },
+      "description": "Debit and credit transactions with suppliers"
+    },
+    "/sales/{saleId}": {
+      "schema": { "$ref": "#/entities/SaleInvoice" },
+      "description": "Real-time retail sales and customer invoices"
+    }
+  }
+}

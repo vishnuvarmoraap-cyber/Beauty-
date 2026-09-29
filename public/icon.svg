@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#311042" />
+    </linearGradient>
+    <linearGradient id="rose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e" />
+      <stop offset="50%" stop-color="#ec4899" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="512" height="512" rx="110" fill="url(#bg)" />
+
+  <!-- Outer Ring Accent -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="url(#rose)" stroke-width="6" opacity="0.4" stroke-dasharray="16 12" />
+
+  <!-- Center Gem / Lipstick Hexagon Badge -->
+  <g transform="translate(256, 230)">
+    <!-- Cosmetic Bottle / Compact Shape -->
+    <rect x="-70" y="-30" width="140" height="150" rx="30" fill="url(#rose)" />
+    <!-- Cap -->
+    <rect x="-45" y="-105" width="90" height="65" rx="16" fill="url(#gold)" />
+    <!-- Gloss highlight -->
+    <path d="M-40 -15 Q0 -25 40 -15" stroke="#ffffff" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.6" />
+    <line x1="-50" y1="10" x2="-50" y2="80" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.4" />
+    <!-- Sparkles -->
+    <path d="M70 -70 L80 -55 L95 -45 L80 -35 L70 -20 L60 -35 L45 -45 L60 -55 Z" fill="#fde047" />
+    <path d="M-80 50 L-72 62 L-60 70 L-72 78 L-80 90 L-88 78 L-100 70 L-88 62 Z" fill="#f43f5e" opacity="0.8" />
+  </g>
+
+  <!-- Text / Monogram -->
+  <text x="256" y="420" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="3">BEAUTY BRANDS</text>
+  <text x="256" y="455" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="600" fill="#f472b6" text-anchor="middle" letter-spacing="5">STOCK MASTER</text>
+</svg>

@@ -1,0 +1,10 @@
+{
+  "name": "Remix LuxeCosmetics - Beauty Brands Stock Master \u0026 Ledger",
+  "description": "Comprehensive cosmetic stock master with profit and loss margin tracking, real-time inventory analytics, supplier debit/credit ledger, barcode scanning \u0026 manual entry, invoice generation, and PDF export with auto-save and sync.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
